@@ -5,34 +5,47 @@ import Signin from './pages/signin'
 import Signup from './pages/signup'
 import Home from './pages/home'
 import Select from './pages/select'
+import Carwash from './pages/carwash'
+import Carservice from './pages/carservice'
 
 function App() {
- const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home/>
-  },
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
 
-  {
-    path: 'signin',
-    element: <Signin/>
-   },
+    {
+      path: 'signin',
+      element: <Signin />
+    },
 
-  {
-    path: 'signup',
-    element: <Signup/>
-   },
-  {
-    path: 'select',
-    element: <Select/>
-   }
+    {
+      path: 'signup',
+      element: <Signup />
+    },
+
+    {
+      path: 'select',
+      element: <Select />
+    },
+
+    {
+      path: 'select/wash',
+      element: <Carwash/>
+    },
+
+    {
+      path: 'select/services',
+      element: <Carservice/>
+    }
 
 
 
- ])
+  ])
 
   return (
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   )
 }
 
