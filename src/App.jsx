@@ -44,9 +44,6 @@ function App() {
       path: 'payment',
       element:<Payment/>
     }
-
-
-
   ])
 
   return (
