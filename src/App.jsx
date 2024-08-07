@@ -7,6 +7,7 @@ import Home from './pages/home'
 import Select from './pages/select'
 import Carwash from './pages/carwash'
 import Carservice from './pages/carservice'
+import Payment from './pages/payment'
 
 function App() {
   const router = createBrowserRouter([
@@ -38,6 +39,10 @@ function App() {
     {
       path: 'select/services',
       element: <Carservice/>
+    },
+    {
+      path: 'payment',
+      element:<Payment/>
     }
 
 
