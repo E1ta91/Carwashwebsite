@@ -1,0 +1,17 @@
+.border-radius-16 {
+    border-radius: 16px;
+  }
+  
+  .box-shadow-custom {
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .backdrop-blur-4_3 {
+    backdrop-filter: blur(4.3px);
+    -webkit-backdrop-filter: blur(4.3px);
+  }
+  
+  .border-custom {
+    border: 1px solid rgba(236, 56, 217, 1);
+  }
+  

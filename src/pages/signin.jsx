@@ -3,14 +3,49 @@ import { google, login } from '../assets';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
+import Loader from "../components/loader"
+import { toast } from 'react-toastify';
+import { apiLogIn } from '../services/auth';
+import { useForm } from 'react-hook-form';
 
 const Signin = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-
+  
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const { register, handleSubmit, formState: { errors } } = useForm({reValidateMode: "onBlur", mode: "all"});
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    setIsSubmitting(true);
+    
+    try {
+      const res = await apiLogIn({
+        email: data.email,
+        password: data.password,
+      });
+      console.log(res.data);
+      
+      toast.success(res.data.message);
+      setTimeout(() => {
+        navigate("/wash");
+      }, 500 )
+      
+     
+    } catch (error) {
+      console.log(error)
+      toast.error("An error occured!")
+    } finally {
+      setIsSubmitting(false)
+    }
+  };
+  
+
+
+
 
   return (
     <div className='flex flex-col md:flex-row'>
@@ -20,14 +55,16 @@ const Signin = () => {
           <p className="text-xl md:text-2xl">Let's get you back in</p>
         </div>
 
-        <form className="w-full max-w-xs mx-auto">
+        <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-xs mx-auto">
           <div className="mb-4">
             <input
               type="text"
               id="email"
               placeholder="Email address"
               className="w-full px-4 py-2 border-2 border-blue-600 text-gray-600 rounded-lg outline-none"
+              {...register("email", { required: "Email is required" })}
             />
+             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
           </div>
 
           <div className="mb-5 relative">
@@ -36,21 +73,25 @@ const Signin = () => {
               id="password"
               placeholder="Password"
               className="w-full px-4 py-2 border-2 border-blue-600 text-gray-600 rounded-lg outline-none"
+              {...register("password", { required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" } })}
             />
+             {errors.password && <p className="text-red-500">{errors.password.message}</p>}
             <span
               className="absolute inset-y-0 right-0 flex justify-center items-center px-3 cursor-pointer"
               onClick={togglePasswordVisibility}
             >
               <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} className="text-slate-500 w-5" />
+
             </span>
           </div>
 
           <button
             type="submit"
             className="w-full h-10 mt-2 bg-blue-600 text-white rounded-lg border border-white hover:bg-gray-500 transition duration-200"
-            onClick={() => navigate('/select')}
+            
           >
-            Signin
+              {isSubmitting?  <Loader className='items-center justify-center flex'/> :
+               "Sign In"}
           </button>
 
           <div className="flex items-center my-4 w-full">
@@ -61,7 +102,7 @@ const Signin = () => {
 
           <div>
             <h1 className='text-center'>
-              Don't have an account yet? <a href="#" onClick={() => navigate('/signup')} className='text-blue-600 font-semibold'>Sign up</a>
+              Don't have an account yet? <a href="#" onClick={() => navigate('/')} className='text-blue-600 font-semibold'>Sign up</a>
             </h1>
           </div>
         </form>
