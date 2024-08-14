@@ -31,7 +31,7 @@ const Signin = () => {
       
       toast.success(res.data.message);
       setTimeout(() => {
-        navigate("/wash");
+        navigate("/select");
       }, 500 )
       
      
