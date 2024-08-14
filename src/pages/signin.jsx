@@ -112,7 +112,7 @@ const Signin = () => {
         </div>
       </div>
 
-      <div className="relative w-full md:w-2/5 h-64 md:h-screen">
+      <div className="relative w-full hidden lg:block md:w-2/5 h-64 md:h-screen">
         <img className="h-full w-full object-cover" src={login} alt="image" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>
