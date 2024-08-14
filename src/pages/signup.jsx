@@ -151,7 +151,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <div className="relative w-full md:w-2/5 h-64 md:h-screen">
+      <div className="relative hidden lg:block w-full md:w-2/5 h-64 md:h-screen">
         <img className="h-full w-full object-cover" src={sign} alt="image" />
         <div className="absolute inset-0 bg-black opacity-30"></div>
       </div>
