@@ -4,7 +4,7 @@ import Navbar from '../constants/Navbar';
 
 const Home = () => {
   return (
-    <div className="bg-[#0F6EDB]  overflow-x-hidden  min-h-screen">
+    <div className="bg-[#0F6EDB] overflow-y-auto overflow-x-auto  min-h-screen">
       <Navbar/>
 
       <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
