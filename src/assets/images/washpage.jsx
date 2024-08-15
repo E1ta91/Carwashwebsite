@@ -107,16 +107,16 @@ const WashPage = () => {
       </div>
 
       <div className='px-8 sm:px-10 mx-14 sm:mx-16 mb-10'>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  justify-evenly gap-10 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4  justify-evenly gap-10 ">
           {filteredServices.map((service) => (
-            <div key={service.id} className="col-md-4 mt-4">
-              <div className="card profile-card-5">
-                <div  className="card-img-block">
-                  <img  className="" src={service.image} alt="Card image cap"/>
+            <div key={service.id} class="col-md-4 mt-4">
+              <div class="card profile-card-5">
+                <div class="card-img-block">
+                  <img class="" src={service.image} alt="Card image cap"/>
                 </div>
                 
-                <div  className="card-body pt-0">
-                  <h1 className="text-2xl">{service.name}</h1>
+                <div class="card-body pt-0">
+                  <h1 class="text-2xl">{service.name}</h1>
                   <div className='flex justify-around items-center'>
                     <div className='flex items-start flex-col'>
                       <span className='text-lg'>Location: {service.location}</span>

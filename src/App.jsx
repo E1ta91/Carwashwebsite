@@ -19,13 +19,21 @@ import Auto from './pages/auto'
 import SpeedyFix from './pages/speedyfix'
 import ReviveRide from './pages/reviveride'
 import RoadReady from './pages/roadready'
+import Home from './pages/home'
 
 
 
 function App() {
   const router = createBrowserRouter([
+
+{
+  path: '/',
+  element: <Home/>
+},
+
+
     {
-      path: '/',
+      path: 'signup',
       element: <Signup />
     },
 

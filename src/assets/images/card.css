@@ -1,0 +1,43 @@
+.card {
+  padding: 3px;
+  border-color: black;
+  border-width: 0.1rem;
+  border-radius: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/*Profile Card 5*/
+.profile-card-5 {
+  margin-top: 1rem;
+}
+
+.profile-card-5 .card-img-block {
+  width: 91%;
+  margin: 0 auto;
+  position: relative;
+  top: -2.3rem;
+}
+
+.profile-card-5 .card-img-block img {
+  height: 23rem;
+  width: 100%;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.63);
+}
+
+.profile-card-5 h5 {
+  color: #4e5e30;
+  font-weight: 600;
+}
+
+.profile-card-5 p {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.profile-card-5 .btn-primary {
+  background-color: #4e5e30;
+  border-color: #4e5e30;
+}
