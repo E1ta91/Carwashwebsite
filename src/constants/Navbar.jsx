@@ -57,8 +57,9 @@ const Navbar = () => {
 
         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
         <DrawNav path={"/"} label={"Home"}  setIsOpen={setIsOpen} />
-        <DrawNav path={"signup"} label={"Sign Up"}  setIsOpen={setIsOpen} />
-        <DrawNav path={"signin"} label={"Sign In"}  setIsOpen={setIsOpen} />
+        <DrawNav path={"/signup"} label={"Sign Up"}  setIsOpen={setIsOpen} />
+        <DrawNav path={"/signin"} label={"Sign In"}  setIsOpen={setIsOpen} />
+        <DrawNav path={"/select"} label={"Select"}  setIsOpen={setIsOpen} />
         <DrawerFooter/>
         </Drawer>
         
