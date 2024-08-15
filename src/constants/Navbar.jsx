@@ -4,10 +4,13 @@ import you from '../assets/images/you.png';
 import face from '../assets/images/face.png';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Drawer from "../components/drawer";
 import DrawNav from "../components/drawnav";
+
 
 const Navbar = () => {
   const navigate = useNavigate()
+  const [isOpen, setIsOpen] = React.useState(false);
   return (
     <header>
       <div className="hidden md:hidden lg:flex w-11/12 h-20 mt-5 items-center z-40 bg-zinc-800 p-6 mb-5 rounded-xl fixed ml-14 justify-around space-x-5">
@@ -18,7 +21,7 @@ const Navbar = () => {
           <a href=""> <h1 onClick={() => navigate('signin')}>Sign In</h1></a>
         </div>
 
-
+    
         <img className="h-20 pr-9 cursor-pointer" src={logos} alt="logo" />
 
         <div className="flex items-center space-x-3">
@@ -37,18 +40,23 @@ const Navbar = () => {
             className="lg:hidden rounded-3xl m-2"
             src={logos}
             alt=""
-            width="45"
+            width="60"
           />
         </div>
 
         * onClick to open nav drawer
-        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" onClick={() => setIsOpen(!isOpen)} className="h-12">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" onClick={() => setIsOpen(!isOpen)} className="h-12">
           <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 
           .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"
           />
-        </svg> */}
+        </svg>
 
-        <DrawNav/>
+        <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+        <DrawNav path={"/"} label={"Home"}  setIsOpen={setIsOpen} />
+        <DrawNav path={"signup"} label={"Sign Up"}  setIsOpen={setIsOpen} />
+        <DrawNav path={"signin"} label={"Sign In"}  setIsOpen={setIsOpen} />
+        </Drawer>
+        
       </div>
     </header>
 
