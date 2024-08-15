@@ -4,6 +4,7 @@ import you from '../assets/images/you.png';
 import face from '../assets/images/face.png';
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DrawNav from "../components/drawnav";
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -40,12 +41,14 @@ const Navbar = () => {
           />
         </div>
 
-        {/** onClick to open nav drawer */}
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" onClick={() => setIsOpen(!isOpen)} className="h-12">
+        * onClick to open nav drawer
+        {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" onClick={() => setIsOpen(!isOpen)} className="h-12">
           <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 
           .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"
           />
-        </svg>
+        </svg> */}
+
+        <DrawNav/>
       </div>
     </header>
 

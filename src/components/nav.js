@@ -11,8 +11,8 @@ export const handleClickScroll = (path, offset) => {
 };
 
 export const navItems = [
-    {  nav: "home" },
-    { nav: 'sign up' },
-    {  nav: "sign in" },
+    { label: 'Home', nav: "home" },
+    { label: 'Sign Up', nav: 'signup' },
+    { label: "Sign In", nav: "sign in" },
     
 ];
