@@ -2,28 +2,53 @@ import { logos } from "../assets";
 import ins from '../assets/images/ins.png';
 import you from '../assets/images/you.png';
 import face from '../assets/images/face.png';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const navigate = useNavigate();
-
+  const navigate = useNavigate()
   return (
-    <div className="w-full h-16 md:h-20 bg-zinc-800 p-4 md:p-6 mb-4 md:mb-5 rounded-xl fixed top-0 left-0 right-0 z-40 flex items-center justify-between md:justify-evenly space-x-4 md:space-x-5">
-      
-      <div className="flex items-center space-x-4 md:space-x-9 text-white text-sm md:text-xl">
-        <h1 onClick={() => navigate('/')} className="cursor-pointer hover:text-gray-300">Home</h1>
-        <h1 onClick={() => navigate('signup')} className="cursor-pointer hover:text-gray-300">Sign Up</h1>
-        <h1 onClick={() => navigate('signin')} className="cursor-pointer hover:text-gray-300">Sign In</h1>
+    <header>
+      <div className="hidden md:hidden lg:flex w-11/12 h-20 mt-5 items-center z-40 bg-zinc-800 p-6 mb-5 rounded-xl fixed ml-14 justify-around space-x-5">
+
+        <div className="text-white flex text-xl gap-9">
+          <a href=""><h1 onClick={() => navigate('/')}>Home</h1></a>
+          <a href=""> <h1 onClick={() => navigate('signup')}>Sign Up</h1></a>
+          <a href=""> <h1 onClick={() => navigate('signin')}>Sign In</h1></a>
+        </div>
+
+
+        <img className="h-20 pr-9 cursor-pointer" src={logos} alt="logo" />
+
+        <div className="flex items-center space-x-3">
+          <img className="w-9 h-9" src={ins} alt="Instagram" />
+          <img className="w-20 h-20" src={you} alt="YouTube" /> {/* Larger size for YouTube */}
+          <img className="w-9 h-9" src={face} alt="Facebook" />
+        </div>
+
+
       </div>
 
-      <img className="w-20 md:w-28" src={logos} alt="logo" />
 
-      <div className="flex items-center space-x-3 md:space-x-4">
-        <img className="w-6 h-6 md:w-9 md:h-9 cursor-pointer hover:opacity-80" src={ins} alt="Instagram" />
-        <img className="w-12 h-12 md:w-20 md:h-20 cursor-pointer hover:opacity-80" src={you} alt="YouTube" /> {/* Larger size for YouTube */}
-        <img className="w-6 h-6 md:w-9 md:h-9 cursor-pointer hover:opacity-80" src={face} alt="Facebook" />
+      <div className="flex lg:hidden justify-between items-center pt-3 ml-4 w-11/12 fixed bg-zinc-900 z-40">
+        <div onClick={() => navigate("/", 100)}>
+          <img
+            className="lg:hidden rounded-3xl m-2"
+            src={logos}
+            alt=""
+            width="45"
+          />
+        </div>
+
+        {/** onClick to open nav drawer */}
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6" onClick={() => setIsOpen(!isOpen)} className="h-12">
+          <path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 
+          .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"
+          />
+        </svg>
       </div>
-    </div>
+    </header>
+
   );
 };
 
