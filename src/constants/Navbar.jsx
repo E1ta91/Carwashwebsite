@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Drawer from "../components/drawer";
 import DrawNav from "../components/drawnav";
 import React from "react";
+import DrawerFooter from "../components/drawerfooter";
 
 
 
@@ -58,6 +59,7 @@ const Navbar = () => {
         <DrawNav path={"/"} label={"Home"}  setIsOpen={setIsOpen} />
         <DrawNav path={"signup"} label={"Sign Up"}  setIsOpen={setIsOpen} />
         <DrawNav path={"signin"} label={"Sign In"}  setIsOpen={setIsOpen} />
+        <DrawerFooter/>
         </Drawer>
         
       </div>
