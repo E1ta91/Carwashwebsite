@@ -1,5 +1,7 @@
 import React from "react";
-import { LinkedIn, Facebook, GitHub } from "./Icons";
+import ins from '../assets/images/ins.png';
+import you from '../assets/images/you.png';
+import face from '../assets/images/face.png';
 
 //yCoord is the y-coordinate for the component to enable scrolling to that component
 export default function DrawerFooter() {
