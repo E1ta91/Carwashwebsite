@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="bg-[#0F6EDB]   overflow-x-hidden overflow-y-auto min-h-screen">
       <Navbar/>
-      
+
       <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
         {[...Array(10)].map((_, index) => (
           <span key={index} className="rectangle-item"></span>
@@ -22,7 +22,7 @@ const Home = () => {
           <h1 className="font-bold text-2xl sm:text-3xl md:text-4xl leading-[1.2] text-white">
             Experience the Ultimate Shine!
           </h1>
-          <p className="mt-4 text-base sm:text-lg md:text-xl font-normal italic p-4 rounded-2xl text-white bg-[#0F6EDB]/70">
+          <p className="mt-4 text-base sm:text-lg md:text-xl leading-[28px] font-normal italic wrapper p-2 rounded-2xl">
             Discover professional car wash services that make your ride sparkle like new. Our expert team uses top-notch techniques and eco-friendly products to ensure your car gets the care it deserves. Come in today and let us give your car the shine it deserves!
           </p>
         </div>
