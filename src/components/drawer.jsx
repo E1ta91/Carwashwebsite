@@ -21,7 +21,7 @@ export default function Drawer({ children, isOpen, setIsOpen }) {
                 <article className="relative ml-3 mr-3 max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
                     <header className="p-4 flex items-center text-white justify-between" >
                         <span className="font-bold text-white">Menu</span>
-                        <div onClick={() => setIsOpen(true)}>
+                        <div onClick={() => setIsOpen(false)}>
                             <XIcon className="" />
                         </div>
                     </header>

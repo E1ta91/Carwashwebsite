@@ -8,7 +8,7 @@ const DrawNav = ({ path, label,   setIsOpen }) => {
     <div className="flex space-x-4">
      
         <div className="h-4 rounded text-white w-3/4"
-            onClick={() => { setIsOpen(true); handleClickScroll(path, 100) }}
+            onClick={() => { setIsOpen(false); handleClickScroll(path, 100) }}
         >
             {label}
         </div>
