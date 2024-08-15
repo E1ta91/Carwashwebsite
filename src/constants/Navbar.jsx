@@ -17,7 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   return (
     <header>
-      <div className="hidden md:hidden lg:flex w-11/12 h-20 mt-5 items-center z-40 bg-zinc-800 p-6 mb-5 rounded-xl  sticky ml-14 justify-around space-x-5">
+      <div className="hidden md:hidden lg:flex w-11/12 h-20 mt-5 items-center z-40 bg-zinc-800 p-6 mb-5 rounded-xl  fixed ml-14 justify-around space-x-5">
 
         <nav className="text-white flex text-xl gap-9">
           <a href=""><h1 onClick={() => navigate('/')}>Home</h1></a>

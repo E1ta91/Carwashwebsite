@@ -4,8 +4,9 @@ import Navbar from '../constants/Navbar';
 
 const Home = () => {
   return (
-    <div className="bg-[#0F6EDB] fixed overflow-x-hidden overflow-y-auto min-h-screen">
+    <div className="bg-[#0F6EDB]   overflow-x-hidden overflow-y-auto min-h-screen">
       <Navbar/>
+      
       <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
         {[...Array(10)].map((_, index) => (
           <span key={index} className="rectangle-item"></span>
