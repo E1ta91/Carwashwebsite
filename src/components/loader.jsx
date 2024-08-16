@@ -7,13 +7,14 @@ const Loader = () => {
     height="30"
     width="30"
     color="#000000"
-    outerCircleColor="#000000"
-    innerCircleColor="#000000"
-    barColor="#000000"
+    outerCircleColor="#FFFFFF"
+    innerCircleColor="#FFFFFF"
+    barColor="#FFFFFF"
     ariaLabel="circles-with-bar-loading"
     wrapperStyle={{}}
     wrapperClass=""
     visible={true}
+   
     />
   )
 }

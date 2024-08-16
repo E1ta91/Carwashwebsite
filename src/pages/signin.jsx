@@ -84,10 +84,10 @@ const Signin = () => {
 
           <button
             type="submit"
-            className="w-full h-10 mt-2 bg-blue-600 text-white rounded-lg border border-white hover:bg-gray-500 transition duration-200"
+            className="w-full h-10 mt-2 bg-blue-600 text-white rounded-lg border border-white hover:bg-gray-500 transition duration-200 flex justify-center items-center"
             
           >
-              {isSubmitting?  <Loader className='items-center justify-center flex'/> :
+              {isSubmitting?  <Loader /> :
                "Sign In"}
           </button>
 
