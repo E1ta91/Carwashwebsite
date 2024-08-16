@@ -53,7 +53,7 @@ const Signup = () => {
   };
 
   return (
-    <div className='flex flex-col md:flex-row'>
+    <div className='flex flex-col md:flex-row w-screen'>
       <div className="flex flex-col justify-center items-center h-screen w-full md:w-3/5 p-6 md:p-10">
         <div className="pb-7 font-sans flex flex-col gap-4 text-center">
           <h1 className="text-3xl md:text-4xl font-bold">Joining Our Community?</h1>
@@ -151,7 +151,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <div className="relative hidden lg:block w-full md:w-2/5 h-64 md:h-screen">
+      <div className="relative hidden lg:block w-2/5 md:w-2/5 h-64 md:h-screen">
         <img className="h-full w-full object-cover" src={sign} alt="image" />
         <div className="absolute inset-0 bg-black opacity-30"></div>
       </div>

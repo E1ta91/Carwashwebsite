@@ -3,7 +3,7 @@ import { car5, car1, car2, car3, car4, logos } from '../assets/index'
 import { SearchIcon } from 'lucide-react';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../constants/Navbar'
+
 
 const carWashServices = [
   {

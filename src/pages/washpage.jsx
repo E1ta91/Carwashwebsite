@@ -4,7 +4,7 @@ import { SearchIcon } from 'lucide-react';
 import './card.css';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../constants/Navbar';
+
 
 const carWashServices = [
   {

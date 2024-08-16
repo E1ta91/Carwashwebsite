@@ -19,11 +19,11 @@ body, html {
     animation: animate 10s linear infinite;
 }
 
-/* .rectangles span:nth-child(1) {
+.rectangles span:nth-child(1) {
     left: 60px;
     animation-delay: 0.6s;
     border: 5px solid cyan;
-} */
+}
 
 .rectangles span:nth-child(2) {
     left: 60%;
@@ -39,13 +39,13 @@ body, html {
     border: 5px solid #fff;
 }
 
-/* .rectangles span:nth-child(4) {
+.rectangles span:nth-child(4) {
     left: 30%;
     animation-delay: 5s;
     width: 80px;
     height: 80px;
     background: #befb46;
-} */
+}
 
 .rectangles span:nth-child(5) {
     left: 40%;
@@ -59,13 +59,13 @@ body, html {
     border: 5px solid deepskyblue;
 }
 
-/* .rectangles span:nth-child(7) {
+.rectangles span:nth-child(7) {
     left: 60%;
     animation-delay: 6s;
     width: 100px;
     height: 100px;
     background: #ffd59e;
-} */
+}
 
 .rectangles span:nth-child(8) {
     left: 70%;
@@ -81,11 +81,11 @@ body, html {
     background: cyan;
 }
 
-/* .rectangles span:nth-child(10) {
+.rectangles span:nth-child(10) {
     left: 90%;
     animation-delay: 4s;
     border: 5px solid #fff;
-} */
+}
 
 @keyframes animate {
     0% {
@@ -98,7 +98,7 @@ body, html {
     }
 
     100% {
-        transform: translateY(800px) rotate(360deg);
+        transform: translateY(400px) rotate(360deg);
         opacity: 0;
     }
 }

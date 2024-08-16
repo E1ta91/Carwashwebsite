@@ -4,15 +4,15 @@ import "../styles/hero.css";
 
 const Home = () => {
   return (
-    <div className="bg-[#0F6EDB] w-screen h-screen ">
-      
+    <div className="bg-[#0F6EDB] w-screen h-screen  ">
+      <div className="fixed">
       <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
         {[...Array(10)].map((_, index) => (
           <span key={index} className="rectangle-item"></span>
         ))}
       </div>
 
-      <div id="home" className="container mt-14 flex flex-col lg:flex-row lg:justify-between lg:items-center w-full px-4 lg:px-0">
+      <div id="home" className="container mt-14 flex flex-col lg:flex-row lg:justify-center lg:items-center w-full px-4 lg:px-0">
         <div className="lg:max-w-[62%] mb-11 mx-auto lg:mx-0 z-10">
           <img src={hd} alt="hero" className="w-full h-auto" />
         </div>
@@ -26,6 +26,10 @@ const Home = () => {
           </p>
         </div>
       </div>
+
+      </div>
+      
+      
     </div>
   );
 };
