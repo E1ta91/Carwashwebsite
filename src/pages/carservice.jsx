@@ -66,11 +66,11 @@ const Carservice = () => {
         service.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
   return (
-    <div className='flex flex-col gap-14 '>
+    <div className='flex flex-col gap-10 '>
         
             <div className='flex justify-center gap-3 items-center relative pt-36'>
             
-                <button className='px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none' onClick={handleShowAll} >ALL</button>
+                <button className='px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none'  >ALL</button>
                 <div className='relative w-[40vw]'>
                     <input
                         type="text"

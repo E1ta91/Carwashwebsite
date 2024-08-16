@@ -1,46 +1,124 @@
 .card {
-    padding: 3px;
-    border-color: rgb(90, 191, 238);
-    border-width: 0.2rem;
-    border-radius: 0.6rem;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-width: 22rem;
+  padding: 3px;
+  border-color: rgb(90, 191, 238);
+  border-width: 0.2rem;
+  border-radius: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-width: 22rem;
+}
+
+/*Profile Card 5*/
+.profile-card-5 {
+  margin-top: 1rem;
+}
+
+/* Card Image Block */
+.profile-card-5 .card-img-block {
+  width: 95%;
+  margin: 0 auto;
+  position: relative;
+  top: -2.3rem;
+}
+
+.profile-card-5 .card-img-block img {
+  height: 20rem;
+  width: 90%;
+  border-radius: 0.4rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.63);
+  margin-left: 15px;
+}
+
+.profile-card-5 h5 {
+  color: #4e5e30;
+  font-weight: 600;
+}
+
+.profile-card-5 p {
+  font-size: 8px;
+  font-weight: 300;
+}
+
+.profile-card-5 .btn-primary {
+  background-color: #4e5e30;
+  border-color: #4e5e30;
+}
+
+/* Responsive Styles */
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .card {
+    min-width: 100%; /* Make card full width on small screens */
+    padding: 2px; /* Reduce padding */
   }
-  
-  /*Profile Card 5*/
-  .profile-card-5 {
-    margin-top: 1rem;
-    
-  }
-  
+
   .profile-card-5 .card-img-block {
-    width: 95%;
-    margin: 0 auto;
-    position: relative;
-    top: -2.3rem;
+    top: -1.5rem; /* Adjust top position */
   }
-  
+
   .profile-card-5 .card-img-block img {
-    height: 20rem;
-    width: 90%;
-    border-radius: 0.4rem;
-    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.63);
-    margin-left: 15px;
+    height: 15rem; /* Reduce image height */
+    width: 100%; /* Make image width 100% */
+    margin-left: 0; /* Remove margin */
   }
-  
+
   .profile-card-5 h5 {
-    color: #4e5e30;
-    font-weight: 600;
+    font-size: 1rem; /* Adjust font size for smaller screens */
   }
-  
+
   .profile-card-5 p {
-    font-size: 8px;
-    font-weight: 300;
+    font-size: 0.75rem; /* Increase font size for better readability */
   }
-  
-  .profile-card-5 .btn-primary {
-    background-color: #4e5e30;
-    border-color: #4e5e30;
+}
+
+/* Tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+  .card {
+    min-width: 100%; /* Make card full width on tablets */
+    padding: 2px; /* Adjust padding */
   }
+
+  .profile-card-5 .card-img-block {
+    top: -2rem; /* Adjust top position */
+  }
+
+  .profile-card-5 .card-img-block img {
+    height: 18rem; /* Adjust image height */
+    width: 100%; /* Make image width 100% */
+  }
+
+  .profile-card-5 h5 {
+    font-size: 1.2rem; /* Adjust font size for tablets */
+  }
+
+  .profile-card-5 p {
+    font-size: 0.85rem; /* Adjust font size for tablets */
+  }
+}
+
+/* Desktops */
+@media (min-width: 769px) {
+  .card {
+    min-width: 22rem; /* Restore minimum width for larger screens */
+    padding: 3px; /* Restore padding */
+  }
+
+  .profile-card-5 .card-img-block {
+    top: -2.3rem; /* Restore top position */
+  }
+
+  .profile-card-5 .card-img-block img {
+    height: 20rem; /* Restore image height */
+    width: 90%; /* Restore image width */
+  }
+
+  .profile-card-5 h5 {
+    font-size: 1.4rem; /* Adjust font size for larger screens */
+  }
+
+  .profile-card-5 p {
+    font-size: 1rem; /* Adjust font size for larger screens */
+  }
+}
