@@ -16,8 +16,9 @@ const Navbar = () => {
   const navigate = useNavigate()
   const [isOpen, setIsOpen] = React.useState(false);
   return (
-    <header className="fixed top-0 left-0 w-full z-40 bg-zinc-800 bg-opacity-80 shadow-md">
-      <div className="hidden lg:flex w-full h-20 items-center justify-between p-6 mb-5 rounded-xl">
+    <header className="fixed top-0 left-0 w-screen z-40 bg-zinc-800 bg-opacity-80 shadow-md">
+
+      <div className="hidden lg:flex w-screen h-20 items-center justify-between p-6 mb-5 rounded-xl">
         <nav className="text-white flex text-xl gap-9">
           <a href="#"><h1 onClick={() => navigate('/')}>Home</h1></a>
           <a href="#"><h1 onClick={() => navigate('signup')}>Sign Up</h1></a>
@@ -33,7 +34,7 @@ const Navbar = () => {
 
 
 
-      <div className="flex lg:hidden w-full items-center justify-between fixed top-0 left-0 bg-zinc-900 z-40 p-3">
+      <div className="flex lg:hidden w-screen items-center justify-between fixed top-0 left-0 bg-zinc-900 z-40 p-3">
   <div onClick={() => navigate("/", 100)}>
     <img className="rounded-3xl" src={logos} alt="" width="70" />
   </div>
@@ -52,9 +53,9 @@ const Navbar = () => {
   </svg>
   <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
     <DrawNav path={"/"} label={"Home"} setIsOpen={setIsOpen} />
-    <DrawNav path={"/signup"} label={"Sign Up"} setIsOpen={setIsOpen} />
-    <DrawNav path={"/signin"} label={"Sign In"} setIsOpen={setIsOpen} />
-    <DrawNav path={"/select"} label={"Select"} setIsOpen={setIsOpen} />
+    <DrawNav path={"signup"} label={"Sign Up"} setIsOpen={setIsOpen} />
+    <DrawNav path={"signin"} label={"Sign In"} setIsOpen={setIsOpen} />
+    <DrawNav path={"select"} label={"Select"} setIsOpen={setIsOpen} />
     <DrawerFooter />
   </Drawer>
 </div>
