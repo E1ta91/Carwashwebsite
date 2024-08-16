@@ -20,17 +20,36 @@ import SpeedyFix from './pages/speedyfix'
 import ReviveRide from './pages/reviveride'
 import RoadReady from './pages/roadready'
 import Home from './pages/home'
+import RootLayout from './constants/layout/rootlayout'
+
 
 
 
 function App() {
   const router = createBrowserRouter([
 
-{
-  path: '/',
-  element: <Home/>
-},
+    {
+      path: '/',
+      element: <RootLayout />,
+      children: [
+        {
+          index: true,
+          element: <Home />
+        },
 
+        {
+          path: 'wash',
+          element: <WashPage />
+        },
+
+       
+      ]
+    },
+
+    {
+      path: 'select/services',
+      element: <Carservice />
+    },
 
     {
       path: 'signup',
@@ -42,72 +61,66 @@ function App() {
       element: <Signin />
     },
 
-  
+
     {
       path: 'select',
       element: <Select />
     },
 
-    
 
-    {
-      path: 'wash',
-      element: <WashPage/>
-    },
 
-    {
-      path: 'select/services',
-      element: <Carservice/>
-    },
+
+
     {
       path: 'premium',
-      element: <Premium/>
+      element: <Premium />
     },
     {
       path: 'sparkle',
-      element: <Sparkle/>
+      element: <Sparkle />
     },
     {
       path: 'premier',
-      element: <Premier/>
+      element: <Premier />
     },
     {
       path: 'elite',
-      element: <Elite/>
+      element: <Elite />
     },
     {
       path: 'radiant',
-      element: <Radiant/>
+      element: <Radiant />
     },
     {
       path: 'classic',
-      element: <Classic/>
+      element: <Classic />
     },
     {
       path: 'pristine',
-      element: <Pristine/>
+      element: <Pristine />
     },
     {
       path: 'smooth',
-      element: <Smooth/>
+      element: <Smooth />
     },
     {
       path: 'auto',
-      element: <Auto/>
+      element: <Auto />
     },
     {
       path: 'speedyfix',
-      element: <SpeedyFix/>
+      element: <SpeedyFix />
     },
     {
       path: 'reviveride',
-      element: <ReviveRide/>
+      element: <ReviveRide />
     },
     {
       path: 'roadready',
-      element: <RoadReady/>
+      element: <RoadReady />
     },
-    
+
+   
   ])
 
   return (

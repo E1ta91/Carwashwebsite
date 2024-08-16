@@ -5,11 +5,12 @@ import './card.css';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
 
+
 const carWashServices = [
   {
     id: 1,
     name: 'Aquagleam Auto Wash',
-    location: 'Adenta Commandos',
+    location: 'Bawleshie',
     hours: '8AM - 6PM',
     image: flier6,
     route: '/premium'
@@ -17,7 +18,7 @@ const carWashServices = [
   {
     id: 2,
     name: 'Sparkle Wave Car Wash',
-    location: 'Adenta Commandos',
+    location: 'Bawleshie',
     hours: '8AM - 6PM',
     image: flier2,
     route: '/sparkle'
@@ -78,14 +79,7 @@ const WashPage = () => {
 
   return (
     <div className="flex flex-col gap-14">
-      <div className="flex justify-between items-center px-4 py-4 fixed h-28 w-full left-0 top-0 z-50 bg-gray-400 bg-opacity-60">
-        <img className="w-[150px]" src={logos} alt="car logo" />
-        <div className="flex justify-center items-center gap-6 text-xl font-semibold text-white">
-          <p>Home</p>
-          <p>Sign up</p>
-          <p>Sign in</p>
-        </div>
-      </div>
+     
 
       <div className="flex justify-center gap-3 items-center pt-36 px-4 sm:px-10">
         <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none">
@@ -119,8 +113,8 @@ const WashPage = () => {
                   <h1 className="text-2xl">{service.name}</h1>
                   <div className='flex justify-around items-center'>
                     <div className='flex items-start flex-col'>
-                      <span className='text-lg'>Location: {service.location}</span>
-                      <span className='text-lg'>Open hours: {service.hours}</span>
+                      <span className='text-xs'>Location: {service.location}</span>
+                      <span className='text-xs'>Open hours: {service.hours}</span>
                     </div>
                     <button
                       onClick={() => navigate(service.route)}

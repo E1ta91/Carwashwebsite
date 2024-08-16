@@ -1,3 +1,9 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 .wrapper {
     background-color: rgb(207,178,20, 0.25);
 }

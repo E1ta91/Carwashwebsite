@@ -1,48 +1,41 @@
-import { avatar1, avatar2, avatar3, avatar4 } from '../assets'
+import "../styles/car.css";
+const car = [
+    { title: 'Basic Wash', copy: 'Exterior rinse and soap application with a quick drying.', button: 'GHC 30.00' },
+    { title: 'Luxury Wash', copy: 'Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.', button: 'GHC 50.00' },
+    { title: 'Detailed Wash', copy: ' Deep cleaning both inside and out, extensive interior detailing, including shampooing of carpets and upholstery.', button: 'GHC 80.00' },
+];
+
+const Card = ({ title, copy, button, index }) => (
+    <div className="cover">
+        <div className="content">
+            <h2 className="title">{title}</h2>
+            <p className="copy">{copy}</p>
+            <button className="btn">{button}</button>
+        </div>
+    </div>
+);
 
 const Elite = () => {
   return (
     <div>
-    <div className="flex items-center flex-col gap-20 justify-center p-10">
+    <div className="flex items-center flex-col gap-10 justify-center p-10">
 
         <h1 className='text-5xl font-extrabold  animate-fadeInColorChange'>ELITE CAR WASH</h1>
 
         <div className='flex flex-col justify-center items-center gap-9'>
             <h2 className='text-3xl'>Our Services</h2>
 
-            <div className='grid grid-cols-3 gap-10'>
-
-                <div className='border bg-[#FFFFFF] shadow-xl gap-10 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                    <img className='w-[27vw] rounded-xl' src={avatar1} alt="avatar1" />
-                    <div className='flex justify-center gap-2 flex-col items-center'>
-                        <h3 className='text-xl font-semibold'>Basic Wash</h3>
-                        <p className='text-[16px]'>Exterior rinse and soap application with a quick drying.</p>
-                        <p className='text-xl font-bold'>GHC 30.00</p>
-                    </div>
-
-                </div>
-
-                <div className='border bg-[#FFFFFF] shadow-xl gap-10 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                    <img className='w-[27vw] rounded-xl' src={avatar2} alt="avatar1" />
-                    <div className='flex justify-center gap-2 flex-col items-center'>
-                        <h3 className='text-xl font-semibold'>Luxury Wash</h3>
-                        <p className='text-[16px]'>Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.</p>
-                        <p className='text-xl font-bold'>GHC 50.00</p>
-                    </div>
-
-                </div>
-
-                <div className='border bg-[#FFFFFF] shadow-xl gap-4 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                    <img className='w-[27vw] rounded-xl h-[270px] ' src={avatar4} alt="avatar1" />
-                    <div className='flex justify-center gap-2 flex-col items-center'>
-                        <h3 className='text-xl font-semibold'>Detailed Wash</h3>
-                        <p className='text-[16px]'> Deep cleaning both inside and out, extensive interior detailing, including shampooing of carpets and upholstery. </p>
-                        <p className='text-xl font-bold'>GHC 80.00</p>
-                    </div>
-
-                </div>
-
-            </div>
+            <main className="page-content mr-32">
+                        {car.map((card, index) => (
+                            <Card
+                                key={index}
+                                title={card.title}
+                                copy={card.copy}
+                                button={card.button}
+                                index={index}
+                            />
+                        ))}
+                    </main>
 
         </div>
 

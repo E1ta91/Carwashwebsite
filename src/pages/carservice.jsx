@@ -3,6 +3,7 @@ import { car5, car1, car2, car3, car4, logos } from '../assets/index'
 import { SearchIcon } from 'lucide-react';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../constants/Navbar'
 
 const carWashServices = [
   {
@@ -60,19 +61,11 @@ const Carservice = () => {
         service.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
   return (
-    <div className='flex flex-col gap-14 '>
-            <div className="flex justify-center items-center px-1 py-1 fixed h-28 w-full left-0 top-0 z-50 bg-black bg-opacity-60">
-                <img className='w-[150px] pt-10 pl-2 ' src={logos} alt="car logo" />
-
-                 <div className='flex justify-center pt-10items-center gap-14 text-xl font-semibold'>
-                 <p>Home</p>
-                <p>Sign up</p>
-                <p>Sign in</p> 
-                </div>       
-                
-            </div>
-
+    <div className='flex flex-col justify-center gap-14 '>
+        
+        <Navbar/>
             <div className='flex justify-center gap-3 items-center relative pt-36'>
+            
                 <button className='px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none'>ALL</button>
                 <div className='relative w-[40vw]'>
                     <input
@@ -89,18 +82,19 @@ const Carservice = () => {
                 </div>
             </div>
 
-            <div className='grid grid-cols-3 gap-7 pl-36'>
+            <div className='grid grid-cols-3 gap-7 '>
                 {filteredServices.map(service => (
                     <div key={service.id} className="flip-card">
                         <div className="flip-card-inner">
                             <div className="flip-card-front">
-                                <img src={service.image} alt="img" className='w-[400px] h-[350px]' />
+                                <img src={service.image} alt="img" className='w-[400px] h-[400px]' />
                             </div>
                             <div className="flip-card-back flex justify-center flex-col gap-3 items-center">
                                 <h1 className='text-xl'>{service.name}</h1>
                                 <p>Location: {service.location}</p>
                                 <p>Open hours: {service.hours}</p>
-                                <button onClick={() => navigate(service.route)} className="p-4 my-5 border-2 border-gray-600 rounded-xl hover:bg-white hover:text-black hover:border-white transition duration-300">Book</button>
+                                <button onClick={() => navigate(service.route)}   className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300"
+                   >Book</button>
                             </div>
                         </div>
                     </div>
