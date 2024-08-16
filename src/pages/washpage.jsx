@@ -10,7 +10,7 @@ const carWashServices = [
   {
     id: 1,
     name: 'Aquagleam Auto Wash',
-    location: 'Adenta Commandos',
+    location: 'Madina',
     hours: '8AM - 6PM',
     image: flier6,
     route: '/premium'
@@ -18,7 +18,7 @@ const carWashServices = [
   {
     id: 2,
     name: 'Sparkle Wave Car Wash',
-    location: 'Adenta Commandos',
+    location: 'Madina',
     hours: '8AM - 6PM',
     image: flier2,
     route: '/sparkle'
@@ -115,7 +115,7 @@ const WashPage = () => {
                 
                 <div  className="card-body pt-0">
                   <h1 className="text-2xl">{service.name}</h1>
-                  <div className='flex justify-around items-center'>
+                  <div className='flex justify-evenly items-center'>
                     <div className='flex items-start flex-col'>
                       <span className='text-lg'>Location: {service.location}</span>
                       <span className='text-lg'>Open hours: {service.hours}</span>
