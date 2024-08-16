@@ -46,7 +46,7 @@ const Signin = () => {
   return (
     <div className='flex flex-col md:flex-row w-screen'>
 
-      <div className="flex flex-col justify-center items-center h-screen w-3/5 md:w-screen p-6 ">
+      <div className="flex flex-col justify-center items-center h-screen w-screen lg:w-3/5 p-6 ">
         <div className="pb-7 font-sans text-center">
           <h1 className="text-3xl md:text-4xl font-bold">Where did you go?</h1>
           <p className="text-xl md:text-2xl">Let's get you back in</p>
