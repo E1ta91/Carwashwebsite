@@ -1,31 +1,3 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-  }
-  
-  .container {
-    max-width: 100%;
-    overflow-x: hidden;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  
-  .rectangles {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  .rectangle-item {
-    display: inline-block;
-    width: 100px;
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin: 5px;
-  }
-
 .wrapper {
     background-color: rgb(207,178,20, 0.25);
 }
