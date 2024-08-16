@@ -48,8 +48,8 @@ const Signin = () => {
 
 
   return (
-    <div className='flex flex-col md:flex-row'>
-      <div className="flex flex-col justify-center items-center h-screen w-full md:w-3/5 p-6 md:p-10">
+    <div className='flex flex-col md:flex-row w-screen'>
+      <div className="flex flex-col justify-center items-center h-screen w-3/5 p-6 ">
         <div className="pb-7 font-sans text-center">
           <h1 className="text-3xl md:text-4xl font-bold">Where did you go?</h1>
           <p className="text-xl md:text-2xl">Let's get you back in</p>
@@ -112,7 +112,7 @@ const Signin = () => {
         </div>
       </div>
 
-      <div className="relative w-full hidden lg:block md:w-2/5 h-64 md:h-screen">
+      <div className="relative w-2/5 hidden lg:block  h-64 md:h-screen">
         <img className="h-full w-full object-cover" src={login} alt="image" />
         <div className="absolute inset-0 bg-black opacity-50"></div>
       </div>

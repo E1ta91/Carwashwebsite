@@ -3,7 +3,7 @@ import "../styles/hero.css";
 
 const Home = () => {
   return (
-    <div className="bg-[#0F6EDB] w-screen h-screen overflow-hidden">
+    <div className="bg-[#0F6EDB] w-screen h-screen overflow-x-hidden">
 
       <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
         {[...Array(10)].map((_, index) => (

@@ -42,15 +42,17 @@ function App() {
           element: <WashPage />
         },
 
+        {
+          path: 'select/services',
+          element: <Carservice />
+        },
+    
+
        
       ]
     },
 
-    {
-      path: 'select/services',
-      element: <Carservice />
-    },
-
+  
     {
       path: 'signup',
       element: <Signup />

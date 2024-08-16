@@ -1,57 +1,41 @@
-import {  dent, electric, engin, trans,  } from '../assets'
+import "../styles/cars.css";
+const cars = [
+    { title: 'Engine', copy: 'Fixes internal engine issues, including components like pistons and valves; involves rebuilds and performance diagnostics.', button: 'GHC 1,500.00' },
+    { title: 'Body repairs', copy: ' Restores exterior damage from accidents; repairs panels, bumpers, and frames; includes paint jobs and dent removal.', button: 'GHC 2500.00' },
+    { title: 'Electrical', copy: ' Diagnoses and fixes issues with the battery, alternator, wiring, and electrical components; ensures proper function of lights and electronics.', button: 'GHC 800.00' },
+    { title: 'Transmission', copy: ' Repairs and replaces gearboxes; addresses  shifting issues, clutch problems, and fluid leaks.', button: 'GHC 1200.00' },
+];
+
+const Cards = ({ title, copy, button, index }) => (
+    <div className="cars">
+        <div className="content">
+            <h2 className="title">{title}</h2>
+            <p className="copy">{copy}</p>
+            <button className="btn">{button}</button>
+        </div>
+    </div>
+);
 
 const ReviveRide = () => {
   return (
-    <div className="flex items-center flex-col gap-20 justify-center p-10">
+    <div className="flex items-center flex-col gap-10 justify-center p-10">
 
     <h1 className='text-5xl font-extrabold  animate-fadeInColorChange'>REVIVE RIDE MECHANICS</h1>
 
     <div className='flex flex-col justify-center items-center gap-9'>
         <h2 className='text-3xl'>Our Services</h2>
 
-        <div className='grid grid-cols-3 gap-10'>
-
-            <div className='border bg-[#FFFFFF] shadow-xl gap-3 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                <img className='w-[27vw]  rounded-xl' src={engin} alt="avatar1" />
-                <div className='flex justify-center gap-2 flex-col items-center'>
-                    <h3 className='text-xl font-semibold'>Engine</h3>
-                    <p className='text-[16px] pl-2'>Fixes internal engine issues, including components like pistons and valves; involves rebuilds and performance diagnostics.</p>
-                    <p className='text-xl font-bold'>GHC 1,500.00</p>
-                </div>
-                
-            </div>
-
-            <div className='border bg-[#FFFFFF] shadow-xl gap-10 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                <img className='w-[27vw] rounded-xl' src={dent} alt="avatar1" />
-                <div className='flex justify-center pb-7 gap-1 flex-col items-center'>
-                    <h3 className='text-xl font-semibold'>Body Repairs</h3>
-                    <p className='text-[16px]'> Restores exterior damage from accidents; repairs panels, bumpers, and frames; includes paint jobs and dent removal.</p>
-                    <p className='text-xl font-bold'>GHC 2500.00</p>
-                </div>
-                
-            </div>
-
-            <div className='border bg-[#FFFFFF] shadow-xl gap-4 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                <img className='w-[27vw] rounded-xl h-[270px] ' src={electric} alt="avatar1" />
-                <div className='flex justify-center gap-2 flex-col items-center'>
-                    <h3 className='text-xl font-semibold'>Electrical</h3>
-                    <p className='text-[16px] pl-3'>Diagnoses and fixes issues with the battery, alternator, wiring, and electrical components; ensures proper function of lights and electronics. </p>
-                    <p className='text-xl font-bold'>GHC 800.00</p>
-                </div>
-                
-            </div>
-
-            <div className='border bg-[#FFFFFF] shadow-xl gap-4 flex-col outline-none w-[27vw] flex h-[65vh] rounded-xl transition-transform transform hover:scale-105 hover:shadow-xl'>
-                <img className='w-[27vw] rounded-xl h-[270px] ' src={trans} alt="avatar1" />
-                <div className='flex justify-center gap-2 flex-col items-center'>
-                    <h3 className='text-xl font-semibold'>Transmission</h3>
-                    <p className='text-[16px]'> Repairs and replaces gearboxes; addresses  shifting issues, clutch problems, and fluid leaks.  </p>
-                    <p className='text-xl font-bold'>GHC 1200.00</p>
-                </div>
-                
-            </div>
-
-        </div>
+        <main className="page-content mr-32">
+                        {cars.map((cards, index) => (
+                            <Cards
+                                key={index}
+                                title={cards.title}
+                                copy={cards.copy}
+                                button={cards.button}
+                                index={index}
+                            />
+                        ))}
+                    </main>
 
     </div>
 

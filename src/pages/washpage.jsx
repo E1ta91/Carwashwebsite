@@ -73,6 +73,10 @@ const WashPage = () => {
     setSearchTerm(event.target.value);
   };
 
+  const handleShowAll = () => {
+    setSearchTerm('');
+  };
+
   const filteredServices = carWashServices.filter(service =>
     service.location.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -82,7 +86,7 @@ const WashPage = () => {
      
 
       <div className="flex justify-center gap-3 items-center pt-36 px-4 sm:px-10">
-        <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none">
+        <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none"  onClick={handleShowAll}>
           ALL
         </button>
         <div className="relative w-full max-w-lg">
