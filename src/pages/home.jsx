@@ -12,9 +12,9 @@ const Home = () => {
         </div>
       </div>
 
-      <div id="home" className="container flex flex-col lg:flex-row lg:justify-center lg:items-center pt-20 w-full px-4 lg:px-0 z-10">
+      <div id="home" className="container flex flex-col lg:flex-row lg:justify-center lg:items-center  w-full px-4 lg:px-0 z-10">
         <div className="lg:max-w-[62%] mb-11 mx-auto lg:mx-0">
-          <img src={hd} alt="hero" className="w-full h-auto max-w-[500px] md:max-w-[600px] lg:max-w-[800px]" />
+          <img src={hd} alt="hero" className="w-full h-auto max-w-[31.25rem] md:max-w-[37.5rem] lg:max-w[50rem]" />
         </div>
 
         <div className="text-center lg:text-left lg:max-w-[40%] px-4">
