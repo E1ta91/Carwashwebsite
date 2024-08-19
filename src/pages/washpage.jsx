@@ -92,6 +92,9 @@ const WashPage = () => {
   // if (loading) {
   //   return <div>Loading.....</div>;
   // }
+  const filteredServices = carServices.filter(service =>
+    service.location.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   return (
     <div className="flex flex-col gap-14">
@@ -116,7 +119,7 @@ const WashPage = () => {
 
       <div className='px-8 sm:px-10 mx-14 sm:mx-16 mb-10'>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-evenly gap-10">
-          {carServices.map((service, index) => (
+          {filteredServices.map((service, index) => (
             <div key={index} className="col-md-4 mt-4">
               <div className="card profile-card-5">
                 <div className="card-img-block">

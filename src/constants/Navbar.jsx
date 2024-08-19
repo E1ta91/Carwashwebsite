@@ -29,7 +29,7 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex lg:hidden justify-between items-center pt-3 ml-4 w-11/12 overflow-x-hidden bg-zinc-900 fixed z-40">
+      <div className="flex lg:hidden justify-between items-center pt-3 ml-4 w-11/12 overflow-x-hidden bg-zinc-900 fixed rounded-b-lg z-40">
         <div >
           <img
             className="lg:hidden rounded-3xl m-2"
