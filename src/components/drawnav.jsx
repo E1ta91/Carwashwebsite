@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-const DrawNav = ({ path, label,   setIsOpen }) => {
+const DrawNav = ({ path, label,  setIsOpen }) => {
   const navigate= useNavigate();
   return (
     <div className="border border-[#0F6EDB] shadow rounded-md p-4 max-w-sm w-full mx-auto items-center cursor-pointer">

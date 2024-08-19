@@ -14,15 +14,15 @@ export default function Drawer({ children, isOpen, setIsOpen }) {
         >
             <section
                 className={
-                    " w-5/6 max-w-lg right-0 absolute bg-zinc-700 h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
+                    " w-5/6 max-w-lg right-0 absolute bg-zinc-700 bg-opacity-90 h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform  " +
                     (isOpen ? " translate-x-0 " : " translate-x-full ")
                 }
             >
                 <article className="relative ml-3 mr-3 max-w-lg pb-10 flex flex-col space-y-6 overflow-y-scroll h-full">
                     <header className="p-4 flex items-center text-white justify-between" >
-                        <span className="font-bold text-white">Menu</span>
+                        <span className="font-bold text-white text-lg">Menu</span>
                         <div onClick={() => setIsOpen(false)}>
-                            <XIcon className="" />
+                            <XIcon />
                         </div>
                     </header>
                     {children}

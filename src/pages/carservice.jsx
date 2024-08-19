@@ -66,44 +66,53 @@ const Carservice = () => {
         service.location.toLowerCase().includes(searchTerm.toLowerCase())
     );
   return (
-    <div className='flex flex-col gap-10 '>
-        
-            <div className='flex justify-center gap-3 items-center relative pt-36'>
-            
-                <button className='px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none'  >ALL</button>
-                <div className='relative w-[40vw]'>
-                    <input
-                        type="text"
-                        id='search'
-                        name='search'
-                        placeholder='Search by your location'
-                        autoComplete='search'
-                        value={searchTerm}
-                        onChange={handleSearch}
-                        className='w-full h-[7vh] rounded-lg border outline-none border-gray-400 pl-10'
-                    />
-                    <SearchIcon className='absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 text-gray-600' />
-                </div>
-            </div>
+    <div className='mx-8 md:mx-24 lg:mx-28 xl:mx-32  '>
+        <div className='flex justify-center items-center flex-col gap-8'>
 
-            <div className='grid grid-cols-3 gap-7 '>
-                {filteredServices.map(service => (
-                    <div key={service.id} className="flip-card">
-                        <div className="flip-card-inner">
-                            <div className="flip-card-front">
-                                <img src={service.image} alt="img" className='w-[400px] h-[400px]' />
-                            </div>
-                            <div className="flip-card-back flex justify-center flex-col gap-3 items-center">
-                                <h1 className='text-xl'>{service.name}</h1>
-                                <p>Location: {service.location}</p>
-                                <p>Open hours: {service.hours}</p>
-                                <button onClick={() => navigate(service.route)}   className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300"
-                   >Book</button>
-                            </div>
+        <div className='flex gap-3 justify-center 
+        items-center relative pt-36 '>
+            
+            <button className='px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none'  onClick={handleShowAll}  >ALL</button>
+            <div className='relative w-full max-w-lg'>
+                <input
+                    type="text"
+                    id='search'
+                    name='search'
+                    placeholder='Search by your location'
+                    autoComplete='search'
+                    value={searchTerm}
+                    onChange={handleSearch}
+                    className='w-[55vw] md:w-[35vw] lg:w-[35vw]  h-12 rounded-lg border outline-none border-gray-400 pl-10'
+                />
+                <SearchIcon className='absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 text-gray-600' />
+            </div>
+        </div>
+
+        <div className='px-8 sm:px-10 mr-10  sm:mr-16 mb-10'>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-evenly gap-20">
+            {filteredServices.map(service => (
+                <div key={service.id} className="flip-card">
+                    <div className="flip-card-inner">
+                        <div className="flip-card-front">
+                            <img src={service.image} alt="img" className='w-[400px] h-[400px]' />
+                        </div>
+                        <div className="flip-card-back flex justify-center flex-col gap-3 items-center">
+                            <h1 className='text-xl'>{service.name}</h1>
+                            <p className='text-lg'>Location: {service.location}</p>
+                            <p className='text-lg'>Open hours: {service.hours}</p>
+                            <button onClick={() => navigate(service.route)}   className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300"
+               >Book</button>
                         </div>
                     </div>
-                ))}
-            </div>
+                </div>
+            ))}
+        </div>
+        </div>
+        </div>
+        
+           
+
+           
         </div>
   )
 }

@@ -7,6 +7,7 @@ import { apiSignUp } from '../services/auth';
 import { toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import Loader from '../components/loader';
+import { apiBooking } from '../services/booking';
 
 
 const Signup = () => {

@@ -1,63 +1,56 @@
-import React, { useState } from 'react';
-import { flier1, flier2, flier3, flier4, flier5, flier6, flier7, logos } from '../assets';
+import React, { useEffect, useState } from 'react';
+import { flier1, flier2, flier3, flier4, flier5, flier6, flier7 } from '../assets';
 import { SearchIcon } from 'lucide-react';
 import './card.css';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
+import { apiGetCarServiceDetails } from '../services/washpage';
 
-
-const carWashServices = [
+const carServices = [
   {
-    id: 1,
-    name: 'Aquagleam Auto Wash',
+    companyName: 'Aquagleam Auto Wash',
     location: 'Madina',
     hours: '8AM - 6PM',
     image: flier6,
     route: '/premium'
   },
   {
-    id: 2,
-    name: 'Sparkle Wave Car Wash',
+    companyName: 'Sparkle Wave Car Wash',
     location: 'Madina',
     hours: '8AM - 6PM',
     image: flier2,
     route: '/sparkle'
   },
   {
-    id: 3,
-    name: 'Premier Auto Wash',
+    companyName: 'Premier Auto Wash',
     location: 'Adenta',
     hours: '8AM - 6PM',
     image: flier3,
     route: '/premier'
   },
   {
-    id: 4,
-    name: 'Elite Shine Car Wash',
+    companyName: 'Elite Shine Car Wash',
     location: 'East Legon',
     hours: '8AM - 6PM',
     image: flier4,
     route: '/elite'
   },
   {
-    id: 5,
-    name: 'Radiant Ride',
+    companyName: 'Radiant Ride',
     location: 'East Legon',
     hours: '8AM - 6PM',
     image: flier5,
     route: '/radiant'
   },
   {
-    id: 6,
-    name: 'Classic Car Wash',
+    companyName: 'Classic Car Wash',
     location: 'Adenta',
     hours: '8AM - 6PM',
     image: flier1,
     route: '/classic'
   },
   {
-    id: 7,
-    name: 'Pristine Splash Car Wash',
+    companyName: 'Pristine Splash Car Wash',
     location: 'Ashieye',
     hours: '8AM - 6PM',
     image: flier7,
@@ -66,8 +59,27 @@ const carWashServices = [
 ];
 
 const WashPage = () => {
-  const navigate = useNavigate();
+  const [CarService, setCarService] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const CarServiceDetails = async () => {
+      try {
+        setLoading(true);
+        const carServiceData = await apiGetCarServiceDetails('RadiantRide');
+        setCarService(carServiceData);
+        console.log(CarService); // Log the fetched data for debugging
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    CarServiceDetails();
+  }, []);
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -77,16 +89,14 @@ const WashPage = () => {
     setSearchTerm('');
   };
 
-  const filteredServices = carWashServices.filter(service =>
-    service.location.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // if (loading) {
+  //   return <div>Loading.....</div>;
+  // }
 
   return (
     <div className="flex flex-col gap-14">
-     
-
       <div className="flex justify-center gap-3 items-center pt-36 px-4 sm:px-10">
-        <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none"  onClick={handleShowAll}>
+        <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none" onClick={handleShowAll}>
           ALL
         </button>
         <div className="relative w-full max-w-lg">
@@ -105,16 +115,15 @@ const WashPage = () => {
       </div>
 
       <div className='px-8 sm:px-10 mx-14 sm:mx-16 mb-10'>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  justify-evenly gap-10 ">
-          {filteredServices.map((service) => (
-            <div key={service.id} className="col-md-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-evenly gap-10">
+          {carServices.map((service, index) => (
+            <div key={index} className="col-md-4 mt-4">
               <div className="card profile-card-5">
-                <div  className="card-img-block">
-                  <img  className="" src={service.image} alt="Card image cap"/>
+                <div className="card-img-block">
+                  <img className="" src={service.image} alt="Card image cap" />
                 </div>
-                
-                <div  className="card-body pt-0">
-                  <h1 className="text-2xl">{service.name}</h1>
+                <div className="card-body pt-0">
+                  <h1 className="text-2xl">{service.companyName}</h1>
                   <div className='flex justify-evenly items-center'>
                     <div className='flex items-start flex-col'>
                       <span className='text-lg'>Location: {service.location}</span>
@@ -122,8 +131,7 @@ const WashPage = () => {
                     </div>
                     <button
                       onClick={() => navigate(service.route)}
-                      className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300"
-                    >
+                      className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300">
                       Book Now
                     </button>
                   </div>
@@ -133,10 +141,7 @@ const WashPage = () => {
           ))}
         </div>
       </div>
-
-
     </div>
-
   );
 };
 
