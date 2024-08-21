@@ -6,7 +6,7 @@ import face from '../assets/images/face.png';
 //yCoord is the y-coordinate for the component to enable scrolling to that component
 export default function DrawerFooter() {
     return (
-        <div className="p-4 max-w-sm mx-auto items-center">
+        <div className="p-4 max-w-sm mx-auto items-center ">
 
             <div className="flex items-center space-x-3">
                 <img className="w-9 h-9" src={ins} alt="Instagram" />

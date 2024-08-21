@@ -1,9 +1,12 @@
 import { hd } from "../assets";
+import Navbar from "../constants/Navbar";
 import "../styles/hero.css";
 
 const Home = () => {
   return (
-    <div className="bg-[#0F6EDB] w-screen h-screen flex flex-col items-center justify-center overflow-hidden">
+    <div>
+      <Navbar/>
+       <div className="bg-[#0F6EDB] w-screen h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="fixed inset-0 z-0">
         <div className="rectangles lg:flex lg:flex-wrap lg:justify-center lg:gap-4">
           {[...Array(10)].map((_, index) => (
@@ -27,6 +30,8 @@ const Home = () => {
         </div>
       </div>
     </div>
+    </div>
+   
   );
 };
 

@@ -28,25 +28,21 @@ import RootLayout from './constants/layout/rootlayout'
 function App() {
   const router = createBrowserRouter([
 
-    {
-      path: '/',
-      element: <RootLayout />,
-      children: [
+  
         {
-          index: true,
+          path: '/',
           element: <Home />
         },
+      
 
-        {
-          path: 'select/services',
-          element: <Carservice />
-        },
+    {
+      path: 'select/services',
+      element: <Carservice />
+    },
 
-        {
-          path: 'wash',
-          element: <WashPage />
-        },
-      ]
+    {
+      path: 'wash',
+      element: <WashPage />
     },
 
     
