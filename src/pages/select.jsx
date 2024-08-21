@@ -13,7 +13,7 @@ const Select = () => {
                     href=''
                     className='bg-white shadow-2xl shadow-black w-4/5 md:w-[25vw] h-[30vh] md:h-[40vh] rounded-md flex flex-col justify-center items-center transform transition-transform hover:scale-105'
                     // onClick={() => navigate('/select/wash')}
-                    to={'/wash'}
+                    to={'select/wash'}
                 >
                     <img src={wash} alt="Car Wash" className='w-36 md:w-72' />
                     <h1 className='pt-6 font-semibold text-blue-600 text-lg md:text-xl'>Car Wash</h1>
