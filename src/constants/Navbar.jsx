@@ -1,4 +1,4 @@
-import { hd, logos } from "../assets";
+import {  logos } from "../assets";
 import ins from '../assets/images/ins.png';
 import you from '../assets/images/you.png';
 import face from '../assets/images/face.png';
@@ -29,6 +29,7 @@ const Navbar = () => {
         </div>
       </div>
 
+                  {/* {for mobile screen} */}
       <div className="flex lg:hidden justify-between items-center pt-3 ml-4 w-11/12 overflow-x-hidden bg-zinc-900 fixed rounded-b-lg z-40">
         <div >
           <img

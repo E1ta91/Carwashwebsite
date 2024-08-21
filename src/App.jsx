@@ -34,7 +34,7 @@ function App() {
       children: [
         {
           index: true,
-          element: <Home  />
+          element: <Home />
         },
 
         {
@@ -46,13 +46,9 @@ function App() {
           path: 'select/services',
           element: <Carservice />
         },
-    
-
-       
       ]
     },
 
-  
     {
       path: 'signup',
       element: <Signup />
@@ -69,38 +65,11 @@ function App() {
       element: <Select />
     },
 
-
-
-
-
     {
-      path: 'premium',
-      element: <Premium />
-    },
-    {
-      path: 'sparkle',
-      element: <Sparkle />
-    },
-    {
-      path: 'premier',
+      path: 'premier/:id',
       element: <Premier />
     },
-    {
-      path: 'elite',
-      element: <Elite />
-    },
-    {
-      path: 'radiant',
-      element: <Radiant />
-    },
-    {
-      path: 'classic',
-      element: <Classic />
-    },
-    {
-      path: 'pristine',
-      element: <Pristine />
-    },
+
     {
       path: 'smooth',
       element: <Smooth />
@@ -122,7 +91,21 @@ function App() {
       element: <RoadReady />
     },
 
-   
+    // {
+    //   path: "prev/:username",
+    //   element: <Preview/>,
+    //   loader: async ({params}) => {
+    //     const username = params.username;
+    //     try {
+    //       const response = await apiGetUserDetails(username);
+    //       const userProfileData = response?.data.user;
+    //       return userProfileData;
+    //     } catch (error) {
+    //       toast.error("An error occured");
+    //       return null;
+    //     }
+    //   },
+    // },
   ])
 
   return (

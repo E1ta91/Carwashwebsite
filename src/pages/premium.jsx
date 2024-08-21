@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "../styles/car.css";
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 // Define the card data
@@ -23,6 +26,46 @@ const Card = ({ title, copy, button, index }) => (
 
 
 const Premium = () => {
+    const { handleSubmit, register, formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate()
+    const params = useParams();
+    console.log("~ Preview ~params", params);
+
+    const onSubmit = async (data) => {
+        console.log('Form Data:', data); // Debug log
+        setIsSubmitting(true);
+
+        
+
+        let payload = {
+            services: params.id,
+            date: data.date,
+            time: data.time,
+            washPackages: data.washPackages,
+            phoneNumber: data.phoneNumber,
+            typeOfService: data.typeOfService
+        };
+
+       
+
+        try {
+            const res = await apiBooking(payload);
+            console.log('Response', res.data); // Debug log
+            toast.success(res.data.message);
+            setTimeout(() => {
+              navigate("/wash");
+            }, 500 )
+            toast.success("Booking successful!");
+
+        } catch (error) {
+            console.error('Error', error); // Debug log
+            toast.error("An error occurred!");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="flex items-center flex-col gap-10 justify-center p-10">
 
@@ -47,29 +90,23 @@ const Premium = () => {
             <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
 
                 <h1 className='text-2xl font-semibold'>Get Your Car Pampered - Book Now!</h1>
-                <form>
-                    <div className="mb-5">
-                        <label htmlFor='name' className="mb-3 block text-base font-medium text-[#07074D]">
-                            Full Name
-                        </label>
-                        <input type="text" name="name" id="name" placeholder="Full Name" autoComplete='name' className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748]  focus:shadow-md" />
-                    </div>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  
                     <div className="mb-5">
                         <label htmlFor='phone' className="mb-3 block text-base font-medium text-[#07074D]">
                             Phone Number
                         </label>
-                        <input type="text" name="phone" id="phone" placeholder="Enter your phone number" autoComplete='phone' className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" />
+                        <input type="text" name="phone" id="phone" placeholder="Enter your phone number" autoComplete='phone' className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" 
+                         {...register('phoneNumber', { required: true })}
+                        />
                     </div>
-                    <div className="mb-5">
-                        <label htmlFor='email' className="mb-3 block text-base font-medium text-[#07074D]">
-                            Email Address
-                        </label>
-                        <input type="email" name="email" id="email" placeholder="Enter your email" autoComplete='email' className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" />
-                    </div>
+                   
 
                     <div className="mb-5">
                         <label htmlFor='category' className="mb-3 block text-base font-medium text-[#07074D]" >Wash packages</label>
-                        <select className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" placeholder="packages category" autoComplete='category' type="text" id="category" name="category" >
+                        <select className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" placeholder="packages category" autoComplete='category' type="text" id="category" name="category"
+                         {...register('washPackages', { required: true })}
+                        >
                             <option className="text-[15px]">Choose your package</option>
                             <option className="text-[15px]" >Basic Wash</option>
                             <option className="text-[15px]" >Luxury Wash</option>
@@ -84,7 +121,9 @@ const Premium = () => {
                                 <label htmlFor='date' className="mb-3 block text-base font-medium text-[#07074D]">
                                     Date
                                 </label>
-                                <input type="date" name="date" id="date" autoComplete='date' className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" />
+                                <input type="date" name="date" id="date" autoComplete='date' className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md"
+                                 {...register('typeOfService', { required: true })}
+                                />
                             </div>
                         </div>
                         <div className="w-full px-3 sm:w-1/2">
@@ -101,7 +140,7 @@ const Premium = () => {
 
                     <div>
                         <button className="hover:shadow-form w-full rounded-md bg-[#dce927] py-3 px-8 text-center text-base font-semibold text-black outline-none">
-                            Book Appointment
+                        {isSubmitting ? 'Booking...' : 'Book Now'}
                         </button>
                     </div>
                 </form>

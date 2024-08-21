@@ -3,6 +3,7 @@ import { apiBooking } from "../services/booking";
 import "../styles/car.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate, useParams } from "react-router-dom";
 
 const car = [
     { title: 'Basic Wash', copy: 'Exterior rinse and soap application with a quick drying.', button: 'GHC 30.00' },
@@ -23,25 +24,36 @@ const Card = ({ title, copy, button, index }) => (
 const Premier = () => {
     const { handleSubmit, register, formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate()
+    const params = useParams();
+    console.log("~ Preview ~params", params);
 
     const onSubmit = async (data) => {
         console.log('Form Data:', data); // Debug log
         setIsSubmitting(true);
 
+        
+
         let payload = {
-            fullName: data.fullName,
+            services: params.id,
             date: data.date,
             time: data.time,
-            email: data.email,
             washPackages: data.washPackages,
             phoneNumber: data.phoneNumber,
             typeOfService: data.typeOfService
         };
 
+       
+
         try {
             const res = await apiBooking(payload);
             console.log('Response', res.data); // Debug log
+            toast.success(res.data.message);
+            setTimeout(() => {
+              navigate("/wash");
+            }, 500 )
             toast.success("Booking successful!");
+
         } catch (error) {
             console.error('Error', error); // Debug log
             toast.error("An error occurred!");
@@ -56,7 +68,7 @@ const Premier = () => {
                 <h1 className='text-5xl text-justify md:text-6xl lg:w-7xl font-extrabold animate-fadeInColorChange'>PREMIER AUTO WASH</h1>
                 <div className='flex flex-col justify-center items-center gap-9'>
                     <h2 className='text-3xl'>Our Services</h2>
-                    <main className="page-content ">
+                    <main className="page-content mr-32">
                         {car.map((card, index) => (
                             <Card
                                 key={index}
@@ -69,24 +81,10 @@ const Premier = () => {
                     </main>
                 </div>
                 <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
+
                     <h1 className='text-2xl font-semibold'>Get Your Car Pampered - Book Now!</h1>
 
-
                     <form onSubmit={handleSubmit(onSubmit)}>
-
-                        <div className="mb-5">
-                            <label htmlFor='fullName' className="mb-3 block text-base font-medium text-[#07074D]">
-                                Full Name
-                            </label>
-                            <input
-                                type="text"
-                                name="fullName"
-                                id="fullName"
-                                placeholder="Full Name"
-                                className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#3894A1] focus:shadow-md"
-                                {...register('fullName', { required: true })}
-                            />
-                        </div>
 
                         <div className="mb-5">
                             <label htmlFor='phoneNumber' className="mb-3 block text-base font-medium text-[#07074D]">
@@ -102,22 +100,7 @@ const Premier = () => {
                             />
                         </div>
 
-                        <div className="mb-5">
-                            <label htmlFor='email' className="mb-3 block text-base font-medium text-[#07074D]">
-                                Email Address
-                            </label>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                placeholder="Enter your email"
-                                className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#3894A1] focus:shadow-md"
-                                {...register('email', { required: true })}
-                            />
-                             {errors.email && <p className="text-red-500">{errors.email.message}</p>}
-                        </div>
-
-
+                      
                         <div className="mb-5">
                             <label htmlFor='washPackages' className="mb-3 block text-base font-medium text-[#07074D]">
                                 Wash Packages
@@ -149,8 +132,8 @@ const Premier = () => {
                                 {...register('typeOfService', { required: true })}
                             >
                                 <option className="text-[15px]">Choose your type of service</option>
-                                <option className="text-[15px]">Home service</option>
-                                <option className="text-[15px]">Wash Center</option>
+                                <option className="text-[15px]">Home Services</option>
+                                <option className="text-[15px]">Service Center</option>
                             </select>
                         </div>
 
