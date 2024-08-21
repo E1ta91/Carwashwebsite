@@ -1,4 +1,5 @@
 import "../styles/cars.css";
+import { dent, electric, engin, trans } from "../assets";
 const cars = [
     { title: 'Engine', copy: 'Fixes internal engine issues, including components like pistons and valves; involves rebuilds and performance diagnostics.', button: 'GHC 150.00' },
     { title: 'Body repairs', copy: ' Restores exterior damage from accidents; repairs panels, bumpers, and frames; includes paint jobs and dent removal.', button: 'GHC 2500.00' },
@@ -22,7 +23,7 @@ const SpeedyFix = () => {
 
             <h1 className='text-5xl font-extrabold  animate-fadeInColorChange'>SPEEDYFIX AUTO REPAIRS</h1>
 
-            <div className='flex flex-col justify-center items-center gap-9'>
+            <div className='md:flex flex-col justify-center items-center gap-9 hidden'>
                 <h2 className='text-3xl'>Our Services</h2>
 
                 <main className="page-content mr-32">
@@ -37,6 +38,43 @@ const SpeedyFix = () => {
                     ))}
                 </main>
 
+            </div>
+
+            <div className="md:hidden flex flex-col gap-6 ">
+                <h2 className='text-3xl text-center'>Our Services</h2>
+                <div className="flex bg-white border rounded-lg shadow-lg h-44 ">
+                    <img className="w-[200px]" src={engin} alt="image" />
+                    <div className="flex flex-col text-center">
+                        <h1 className="font-bold">Engine</h1>
+                        <p>Fixes internal engine issues, including components like pistons and valves.</p>
+                        <button className="border bg-black text-white rounded-lg w-24">GHC 150.00</button>
+                    </div>
+
+                </div>
+                <div className="flex bg-white border rounded-lg shadow-lg h-48 ">
+                    <img className="w-[200px]" src={dent} alt="image" />
+                    <div className="flex flex-col text-center gap-1">
+                        <h1 className="font-bold">Body Repairs</h1>
+                        <p>Restores exterior damage like dents, paint jobs, repair panel,bumpers and frames. </p>
+                        <button className="border  bg-black text-white rounded-lg w-24">GHC 2500.00</button>
+                    </div>
+                </div>
+                <div className="flex bg-white border rounded-lg shadow-lg h-44 ">
+                    <img className="w-[200px]" src={electric} alt="image" />
+                    <div className="flex flex-col text-center">
+                        <h1 className="font-bold">Electricals</h1>
+                        <p>Diagnoses and fixes issues with the battery, alternator, wiring, and electrical components</p>
+                        <button className="border bg-black text-white rounded-lg w-24">GHC 1200.00</button>
+                    </div>
+                </div>
+                <div className="flex bg-white border rounded-lg shadow-lg h-52 ">
+                    <img className="w-[200px]" src={trans} alt="image" />
+                    <div className="flex flex-col text-center">
+                        <h1 className="font-bold">Transmission</h1>
+                        <p>Repairs and replaces gearboxes; addresses  shifting issues, clutch problems, and fluid leaks.</p>
+                        <button className="border bg-black text-white rounded-lg w-24">GHC 1200.00</button>
+                    </div>
+                </div>
             </div>
 
             <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
