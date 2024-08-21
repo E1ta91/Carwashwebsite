@@ -1,62 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { flier1, flier2, flier3, flier4, flier5, flier6, flier7 } from '../assets';
+import { flier1, flier2, flier3, flier4, flier5, flier6, flier7,  } from '../assets';
+import logo from '../assets/images/logo.png'
 import { SearchIcon } from 'lucide-react';
 import './card.css';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
 import { apiGetCarCare,  } from '../services/washpage';
+import Navbar from '../constants/Navbar';
 
-// const carServices = [
-//   {
-//     companyName: 'Aquagleam Auto Wash',
-//     location: 'Madina',
-//     hours: '8AM - 6PM',
-//     image: flier6,
-//     route: '/premium'
-//   },
-//   {
-//     companyName: 'Sparkle Wave Car Wash',
-//     location: 'Madina',
-//     hours: '8AM - 6PM',
-//     image: flier2,
-//     route: '/sparkle'
-//   },
-//   {
-//     companyName: 'Premier Auto Wash',
-//     location: 'Adenta',
-//     hours: '8AM - 6PM',
-//     image: flier3,
-//     route: '/premier'
-//   },
-//   {
-//     companyName: 'Elite Shine Car Wash',
-//     location: 'East Legon',
-//     hours: '8AM - 6PM',
-//     image: flier4,
-//     route: '/elite'
-//   },
-//   {
-//     companyName: 'Radiant Ride',
-//     location: 'East Legon',
-//     hours: '8AM - 6PM',
-//     image: flier5,
-//     route: '/radiant'
-//   },
-//   {
-//     companyName: 'Classic Car Wash',
-//     location: 'Adenta',
-//     hours: '8AM - 6PM',
-//     image: flier1,
-//     route: '/classic'
-//   },
-//   {
-//     companyName: 'Pristine Splash Car Wash',
-//     location: 'Ashieye',
-//     hours: '8AM - 6PM',
-//     image: flier7,
-//     route: '/pristine'
-//   }
-// ];
+
 
 const WashPage = () => {
   const [CarService, setCarService] = useState([]);
@@ -87,7 +39,7 @@ const WashPage = () => {
 console.log("Response",CarService)
 if (loading) {
   
-  return <div>Loading.....</div>;
+  return <div className=' w-screen h-screen rounded-full flex justify-center items-center'> <img className='animate-ping justify-center items-center flex w-[300px]' src={logo} alt="image" /></div>;
 }
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
@@ -108,8 +60,9 @@ const serviceType = CarService.filter(service =>
   service.serviceType == 'Car-Wash'
 );
   return (
-    <div className="flex flex-col gap-14">
-      <div className="flex justify-center gap-3 items-center pt-36 px-4 sm:px-10">
+    <div className="flex flex-col gap-9">
+      <div> <Navbar/></div>
+      <div className="flex justify-center gap-9 items-center pt-36 px-4 sm:px-10">
         <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none" onClick={handleShowAll}>
           ALL
         </button>

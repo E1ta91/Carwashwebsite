@@ -37,16 +37,18 @@ function App() {
           element: <Home />
         },
 
-        {
-          path: 'wash',
-          element: <WashPage />
-        },
+      
 
         {
           path: 'select/services',
           element: <Carservice />
         },
       ]
+    },
+
+    {
+      path: 'wash',
+      element: <WashPage />
     },
 
     {
