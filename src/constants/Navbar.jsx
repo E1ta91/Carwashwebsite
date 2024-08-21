@@ -2,7 +2,7 @@ import {  logos } from "../assets";
 import ins from '../assets/images/ins.png';
 import you from '../assets/images/you.png';
 import face from '../assets/images/face.png';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Drawer from "../components/drawer";
 import DrawNav from "../components/drawnav";
 
@@ -12,14 +12,20 @@ import React from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const navigate = useNavigate();
+  const handleNavigation = (path) => {
+    navigate(path);
+    setIsOpen(false);
+  };
+
   return (
     <header className="flex shadow-md md:shadow-none   ">
 
       <div className="hidden lg:flex w-11/12 mt-5 items-center justify-evenly   z-40 bg-zinc-800  mb-5 rounded-xl fixed ml-14">
         <nav className="text-white flex text-lg gap-16">
-          <a href="#" onClick={() => navigate('/')} className="hover:underline">Home</a>
-          <a href="#" onClick={() => navigate('signup')} className="hover:underline">Sign Up</a>
-          <a href="#" onClick={() => navigate('signin')} className="hover:underline">Sign In</a>
+
+        <button onClick={() => handleNavigation('/')} className="hover:underline">Home</button>
+          <button onClick={() => handleNavigation('/signup')} className="hover:underline">Sign Up</button>
+          <button onClick={() => handleNavigation('/signin')} className="hover:underline">Sign In</button>
         </nav>
         <img className="h-20 mx-4 pr-8 cursor-pointer" src={logos} alt="logo" />
         <div className="flex items-center space-x-5">

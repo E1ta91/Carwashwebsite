@@ -75,7 +75,7 @@ const Premium = () => {
                 <h2 className='text-3xl'>Our Services</h2>
             </div>
 
-            <main className="page-content mr-32">
+            <main className="page-content mr-32 md:flex hidden">
                 {car.map((card, index) => (
                     <Card
                         key={index}
@@ -86,6 +86,35 @@ const Premium = () => {
                     />
                 ))}
             </main>
+
+            <div className="md:hidden flex flex-col gap-6">
+                    <h2 className='text-3xl text-center'>Our Services</h2>
+                    <div className="flex bg-white border rounded-lg shadow-lg ">
+                        <img className="w-[200px]" src={avatar1} alt="image" />
+                        <div className="flex flex-col text-center">
+                            <h1 className="font-bold">Basic Wash</h1>
+                            <p>Exterior rinse and soap application with a quick drying</p>
+                            <button className="border bg-black text-white rounded-lg w-24">GHC 30.00</button>
+                        </div>
+
+                    </div>
+                    <div className="flex bg-white border rounded-lg shadow-lg ">
+                        <img className="w-[200px]" src={avatar2} alt="image" />
+                        <div className="flex flex-col text-center gap-1">
+                            <h1 className="font-bold">Luxury Wash</h1>
+                            <p>Deep cleaning both inside and out, extensive interior detailing</p>
+                            <button className="border  bg-black text-white rounded-lg w-24">GHC 30.00</button>
+                        </div>
+                    </div>
+                    <div className="flex bg-white border rounded-lg shadow-lg ">
+                        <img className="w-[200px]" src={avatar3} alt="image" />
+                        <div className="flex flex-col text-center">
+                            <h1 className="font-bold">Basic Wash</h1>
+                            <p>Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.</p>
+                            <button className="border bg-black text-white rounded-lg w-24">GHC 30.00</button>
+                        </div>
+                    </div>
+                </div>
 
             <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
 

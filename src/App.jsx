@@ -37,19 +37,19 @@ function App() {
           element: <Home />
         },
 
-      
-
         {
           path: 'select/services',
           element: <Carservice />
         },
+
+        {
+          path: 'wash',
+          element: <WashPage />
+        },
       ]
     },
 
-    {
-      path: 'wash',
-      element: <WashPage />
-    },
+    
 
     {
       path: 'signup',
@@ -71,6 +71,7 @@ function App() {
       path: 'premier/:id',
       element: <Premier />
     },
+    
 
     {
       path: 'smooth',
@@ -93,21 +94,7 @@ function App() {
       element: <RoadReady />
     },
 
-    // {
-    //   path: "prev/:username",
-    //   element: <Preview/>,
-    //   loader: async ({params}) => {
-    //     const username = params.username;
-    //     try {
-    //       const response = await apiGetUserDetails(username);
-    //       const userProfileData = response?.data.user;
-    //       return userProfileData;
-    //     } catch (error) {
-    //       toast.error("An error occured");
-    //       return null;
-    //     }
-    //   },
-    // },
+    
   ])
 
   return (

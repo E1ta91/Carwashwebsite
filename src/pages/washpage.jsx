@@ -61,7 +61,7 @@ const serviceType = CarService.filter(service =>
 );
   return (
     <div className="flex flex-col gap-9">
-      <div> <Navbar/></div>
+      
       <div className="flex justify-center gap-9 items-center pt-36 px-4 sm:px-10">
         <button className="px-5 py-3 bg-white font-semibold text-black rounded-lg border-2 hover:bg-blue-600 focus:outline-none" onClick={handleShowAll}>
           ALL
