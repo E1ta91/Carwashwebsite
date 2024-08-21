@@ -79,7 +79,7 @@ const WashPage = () => {
   <nav className="text-white flex text-lg gap-16">
 
   <button onClick={() => handleNavigation('/')} className="hover:underline">Home</button>
-    <button onClick={() => handleNavigation('/select/services')} className="hover:underline">Car Service</button>
+    <button onClick={() => handleNavigation('/select/services')} className="hover:underline">Car Services</button>
   </nav>
   <img className="h-20 mx-4 pr-8 cursor-pointer" src={logos} alt="logo" />
   <div className="flex items-center space-x-5">
@@ -109,7 +109,7 @@ const WashPage = () => {
 
   <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
     <DrawNav path={"/"} label={"Home"} setIsOpen={setIsOpen} />
-    <DrawNav path={"/select/services"} label={"Car Service"}  setIsOpen={setIsOpen} />
+    <DrawNav path={"/select/services"} label={"Car Services"}  setIsOpen={setIsOpen} />
     <DrawerFooter  />
   
   </Drawer>
