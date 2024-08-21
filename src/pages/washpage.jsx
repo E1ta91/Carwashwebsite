@@ -94,7 +94,7 @@ const serviceType = CarService.filter(service =>
                   <div className='flex justify-evenly items-center'>
                     <div className='flex items-start flex-col'>
                       <span className='text-lg'>Location: {service.location}</span>
-                      <span className='text-lg'>Open hours: {service.hours}</span>
+                      <span className='text-lg'>Open hours: {service.time}</span>
                     </div>
                     <button
                       onClick={() => navigate(`/premier/${service.id}`)}
