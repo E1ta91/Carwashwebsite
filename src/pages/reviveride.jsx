@@ -43,24 +43,14 @@ const ReviveRide = () => {
 
         <h1 className='text-2xl font-semibold'>Smooth Rides Ahead: Schedule Your Car Maintenance</h1>
         <form>
-            <div className="mb-5">
-                <label htmlFor='name' className="mb-3 block text-base font-medium text-[#07074D]">
-                    Full Name
-                </label>
-                <input type="text" name="name" id="name" placeholder="Full Name" autoComplete='name' className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748]  focus:shadow-md" />
-            </div>
+          
             <div className="mb-5">
                 <label htmlFor='phone' className="mb-3 block text-base font-medium text-[#07074D]">
                     Phone Number
                 </label>
                 <input type="text" name="phone" id="phone" placeholder="Enter your phone number" autoComplete='phone' className="w-full rounded-md border  border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" />
             </div>
-            <div className="mb-5">
-                <label htmlFor='email' className="mb-3 block text-base font-medium text-[#07074D]">
-                    Email Address
-                </label>
-                <input type="email" name="email" id="email" placeholder="Enter your email" autoComplete='email' className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#e5f748] focus:shadow-md" />
-            </div>
+           
 
             <div className="mb-5">
                 <label htmlFor='category' className="mb-3 block text-base font-medium text-[#07074D]" >Car service packages</label>
