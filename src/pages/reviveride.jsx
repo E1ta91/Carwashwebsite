@@ -102,6 +102,24 @@ const ReviveRide = () => {
                 </select>
             </div>
 
+            <div className="mb-5">
+                            <label htmlFor='typeOfService' className="mb-3 block text-base font-medium text-[#07074D]">
+                                Type Of Service
+                            </label>
+                            <select
+                                className="w-full rounded-md border border-[#585757] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#3894A1] focus:shadow-md"
+                                placeholder="Service Category"
+                                type="text"
+                                id="typeOfService"
+                                name="typeOfService"
+                               
+                            >
+                                <option className="text-[15px]">Choose your type of service</option>
+                                <option className="text-[15px]">Home Services</option>
+                                <option className="text-[15px]">Service Center</option>
+                            </select>
+                        </div>
+
             <div className="-mx-3 flex flex-wrap">
                 <div className="w-full px-3 sm:w-1/2">
                     <div className="mb-5">
