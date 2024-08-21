@@ -47,7 +47,7 @@ function App() {
     },
 
     {
-      path: 'select/wash',
+      path: 'wash',
       element: <WashPage />
     },
 
