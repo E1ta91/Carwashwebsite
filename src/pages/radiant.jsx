@@ -1,21 +1,80 @@
+import React, { useState } from 'react'
 import "../styles/car.css";
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { avatar1, avatar2, avatar3 } from '../assets';
 const car = [
-    { title: 'Basic Wash', copy: 'Exterior rinse and soap application with a quick drying.', button: 'GHC 30.00' },
-    { title: 'Luxury Wash', copy: 'Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.', button: 'GHC 50.00' },
-    { title: 'Detailed Wash', copy: ' Deep cleaning both inside and out, extensive interior detailing, including shampooing of carpets and upholstery.', button: 'GHC 80.00' },
+    { title: 'Basic Wash', copy: 'Exterior rinse and soap application with a quick drying.', button: 'GHC 30.00', image: avatar1 },
+    { title: 'Luxury Wash', copy: 'Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.', button: 'GHC 50.00', image: avatar2 },
+    { title: 'Detailed Wash', copy: ' Deep cleaning both inside and out, extensive interior detailing, including shampooing of carpets and upholstery.', button: 'GHC 80.00', image: avatar3 },
 ];
 
 const Card = ({ title, copy, button, index }) => (
-    <div className="cover">
-        <div className="content">
+    <div>
+      
+        <div className=" cover ">
+            <div className="content">
+                <h2 className="title">{title}</h2>
+                <p className="copy">{copy}</p>
+                <button className="btn">{button}</button>
+            </div>
+        </div>
+       
+       
+        <div className='flex flex-row '>
+            <div>
+                <img src={image} alt="image" />
+            </div>
+            <div>
             <h2 className="title">{title}</h2>
-            <p className="copy">{copy}</p>
-            <button className="btn">{button}</button>
+                <p className="copy">{copy}</p>
+                <button className="btn">{button}</button>
+            </div>
         </div>
     </div>
 );
 
 const Radiant = () => {
+    const { handleSubmit, register, formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate()
+    const params = useParams();
+    console.log("~ Preview ~params", params);
+
+    const onSubmit = async (data) => {
+        console.log('Form Data:', data); // Debug log
+        setIsSubmitting(true);
+
+
+
+        let payload = {
+            services: params.id,
+            date: data.date,
+            time: data.time,
+            washPackages: data.washPackages,
+            phoneNumber: data.phoneNumber,
+            typeOfService: data.typeOfService
+        };
+
+
+
+        try {
+            const res = await apiBooking(payload);
+            console.log('Response', res.data); // Debug log
+            toast.success(res.data.message);
+            setTimeout(() => {
+                navigate("/wash");
+            }, 500)
+            toast.success("Booking successful!");
+
+        } catch (error) {
+            console.error('Error', error); // Debug log
+            toast.error("An error occurred!");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <div>
             <div className="flex items-center flex-col gap-10 justify-center p-10">
@@ -42,7 +101,7 @@ const Radiant = () => {
                 <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
 
                     <h1 className='text-2xl font-semibold'>Secure Your Spot for a Sparkling Ride</h1>
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-5">
                             <label htmlFor='name' className="mb-3 block text-base font-medium text-[#07074D]">
                                 Full Name
@@ -96,7 +155,7 @@ const Radiant = () => {
 
                         <div>
                             <button className="hover:shadow-form w-full rounded-md bg-[#BD0000] py-3 px-8 text-center text-base font-semibold text-black outline-none">
-                                Book Appointment
+                                {isSubmitting ? 'Booking...' : 'Book Now'}
                             </button>
                         </div>
                     </form>

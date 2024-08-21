@@ -95,7 +95,7 @@ const Pristine = () => {
 
                     <div>
                         <button className="hover:shadow-form w-full rounded-md bg-[#100F11] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                            Book Appointment
+                        {isSubmitting ? 'Booking...' : 'Book Now'}
                         </button>
                     </div>
                 </form>

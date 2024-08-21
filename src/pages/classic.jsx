@@ -1,4 +1,9 @@
+import React, { useState } from 'react'
 import "../styles/car.css";
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 const car = [
     { title: 'Basic Wash', copy: 'Exterior rinse and soap application with a quick drying.', button: 'GHC 30.00' },
     { title: 'Luxury Wash', copy: 'Comprehensive exterior wash with hand washing and waxing, plus detailed interior vacuuming and wipe-down.', button: 'GHC 50.00' },
@@ -17,6 +22,45 @@ const Card = ({ title, copy, button, index }) => (
 
 
 const Classic = () => {
+    const { handleSubmit, register, formState: { errors } } = useForm({ reValidateMode: "onBlur", mode: "all" });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const navigate = useNavigate()
+    const params = useParams();
+    console.log("~ Preview ~params", params);
+
+    const onSubmit = async (data) => {
+        console.log('Form Data:', data); // Debug log
+        setIsSubmitting(true);
+
+        
+
+        let payload = {
+            services: params.id,
+            date: data.date,
+            time: data.time,
+            washPackages: data.washPackages,
+            phoneNumber: data.phoneNumber,
+            typeOfService: data.typeOfService
+        };
+
+       
+
+        try {
+            const res = await apiBooking(payload);
+            console.log('Response', res.data); // Debug log
+            toast.success(res.data.message);
+            setTimeout(() => {
+              navigate("/wash");
+            }, 500 )
+            toast.success("Booking successful!");
+
+        } catch (error) {
+            console.error('Error', error); // Debug log
+            toast.error("An error occurred!");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
   return (
     <div>
             <div className="flex items-center flex-col gap-10 justify-center p-10">
@@ -43,7 +87,7 @@ const Classic = () => {
                 <div className="mx-auto w-full max-w-[550px] flex flex-col gap-10 bg-white">
 
                     <h1 className='text-2xl font-semibold'>Transform Your Car: Book a Wash</h1>
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         <div className="mb-5">
                             <label htmlFor='name' className="mb-3 block text-base font-medium text-[#07074D]">
                                 Full Name
@@ -97,7 +141,7 @@ const Classic = () => {
 
                         <div>
                             <button className="hover:shadow-form w-full rounded-md bg-[#0F0550] py-3 px-8 text-center text-base font-semibold text-white outline-none">
-                                Book Appointment
+                            {isSubmitting ? 'Booking...' : 'Book Now'}
                             </button>
                         </div>
                     </form>

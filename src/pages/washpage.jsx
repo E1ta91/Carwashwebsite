@@ -4,62 +4,62 @@ import { SearchIcon } from 'lucide-react';
 import './card.css';
 import './flipCards.css';
 import { useNavigate } from 'react-router-dom';
-import { apiGetCarServiceDetails } from '../services/washpage';
+import { apiGetCarCare,  } from '../services/washpage';
 
-const carServices = [
-  {
-    companyName: 'Aquagleam Auto Wash',
-    location: 'Madina',
-    hours: '8AM - 6PM',
-    image: flier6,
-    route: '/premium'
-  },
-  {
-    companyName: 'Sparkle Wave Car Wash',
-    location: 'Madina',
-    hours: '8AM - 6PM',
-    image: flier2,
-    route: '/sparkle'
-  },
-  {
-    companyName: 'Premier Auto Wash',
-    location: 'Adenta',
-    hours: '8AM - 6PM',
-    image: flier3,
-    route: '/premier'
-  },
-  {
-    companyName: 'Elite Shine Car Wash',
-    location: 'East Legon',
-    hours: '8AM - 6PM',
-    image: flier4,
-    route: '/elite'
-  },
-  {
-    companyName: 'Radiant Ride',
-    location: 'East Legon',
-    hours: '8AM - 6PM',
-    image: flier5,
-    route: '/radiant'
-  },
-  {
-    companyName: 'Classic Car Wash',
-    location: 'Adenta',
-    hours: '8AM - 6PM',
-    image: flier1,
-    route: '/classic'
-  },
-  {
-    companyName: 'Pristine Splash Car Wash',
-    location: 'Ashieye',
-    hours: '8AM - 6PM',
-    image: flier7,
-    route: '/pristine'
-  }
-];
+// const carServices = [
+//   {
+//     companyName: 'Aquagleam Auto Wash',
+//     location: 'Madina',
+//     hours: '8AM - 6PM',
+//     image: flier6,
+//     route: '/premium'
+//   },
+//   {
+//     companyName: 'Sparkle Wave Car Wash',
+//     location: 'Madina',
+//     hours: '8AM - 6PM',
+//     image: flier2,
+//     route: '/sparkle'
+//   },
+//   {
+//     companyName: 'Premier Auto Wash',
+//     location: 'Adenta',
+//     hours: '8AM - 6PM',
+//     image: flier3,
+//     route: '/premier'
+//   },
+//   {
+//     companyName: 'Elite Shine Car Wash',
+//     location: 'East Legon',
+//     hours: '8AM - 6PM',
+//     image: flier4,
+//     route: '/elite'
+//   },
+//   {
+//     companyName: 'Radiant Ride',
+//     location: 'East Legon',
+//     hours: '8AM - 6PM',
+//     image: flier5,
+//     route: '/radiant'
+//   },
+//   {
+//     companyName: 'Classic Car Wash',
+//     location: 'Adenta',
+//     hours: '8AM - 6PM',
+//     image: flier1,
+//     route: '/classic'
+//   },
+//   {
+//     companyName: 'Pristine Splash Car Wash',
+//     location: 'Ashieye',
+//     hours: '8AM - 6PM',
+//     image: flier7,
+//     route: '/pristine'
+//   }
+// ];
 
 const WashPage = () => {
-  const [CarService, setCarService] = useState(null);
+  const [CarService, setCarService] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
@@ -68,9 +68,11 @@ const WashPage = () => {
     const CarServiceDetails = async () => {
       try {
         setLoading(true);
-        const carServiceData = await apiGetCarServiceDetails('RadiantRide');
-        setCarService(carServiceData);
-        console.log(CarService); // Log the fetched data for debugging
+        const carServiceData = await apiGetCarCare();
+        console.log(carServiceData.data);
+        
+        setCarService(carServiceData.data);
+         // Log the fetched data for debugging
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -78,9 +80,15 @@ const WashPage = () => {
       }
     };
 
+    
+
     CarServiceDetails();
   }, []);
-
+console.log("Response",CarService)
+if (loading) {
+  
+  return <div>Loading.....</div>;
+}
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
@@ -92,10 +100,13 @@ const WashPage = () => {
   // if (loading) {
   //   return <div>Loading.....</div>;
   // }
-  const filteredServices = carServices.filter(service =>
-    service.location.toLowerCase().includes(searchTerm.toLowerCase())
-);
+//   const filteredServices = CarService.filter(service =>
+//     service.location.toLowerCase().includes(searchTerm.toLowerCase())
+// );
 
+const serviceType = CarService.filter(service =>
+  service.serviceType == 'Car-Wash'
+);
   return (
     <div className="flex flex-col gap-14">
       <div className="flex justify-center gap-3 items-center pt-36 px-4 sm:px-10">
@@ -119,11 +130,11 @@ const WashPage = () => {
 
       <div className='px-8 sm:px-10 mx-14 sm:mx-16 mb-10'>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-evenly gap-10">
-          {filteredServices.map((service, index) => (
+          {serviceType.map((service, index) => (
             <div key={index} className="col-md-4 mt-4">
               <div className="card profile-card-5">
                 <div className="card-img-block">
-                  <img className="" src={service.image} alt="Card image cap" />
+                  <img className="" src={`https://savefiles.org/${service.image}?shareable_link=335` } alt="Card image cap" />
                 </div>
                 <div className="card-body pt-0">
                   <h1 className="text-2xl">{service.companyName}</h1>
@@ -133,7 +144,7 @@ const WashPage = () => {
                       <span className='text-lg'>Open hours: {service.hours}</span>
                     </div>
                     <button
-                      onClick={() => navigate(service.route)}
+                      onClick={() => navigate(`/premier/${service.id}`)}
                       className="p-2 my-5 border-2 border-gray-600 rounded-xl hover:bg-blue-600 hover:text-white hover:border-white transition duration-300">
                       Book Now
                     </button>
